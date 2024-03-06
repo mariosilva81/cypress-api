@@ -1,5 +1,3 @@
-export const baseURL = "https://api.restful-api.dev/objects";
-
 export const createMock = {
   name: "Apple MacBook Pro 20",
   data: {

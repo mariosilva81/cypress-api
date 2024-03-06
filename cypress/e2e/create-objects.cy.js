@@ -1,12 +1,12 @@
 /// <reference types="cypress"/>
 
-import { createMock, baseURL, createErrorMessage } from "../fixtures";
+import { createMock, createErrorMessage } from "../fixtures";
 
 describe("Create object", () => {
   it("Create object successfully", () => {
     cy.request({
       method: "POST",
-      url: baseURL,
+      url: "/objects",
       body: createMock,
     }).then(({ status, body }) => {
       expect(status).to.equal(200);
@@ -20,7 +20,7 @@ describe("Create object", () => {
   it("Create object unsuccessfully", () => {
     cy.request({
       method: "POST",
-      url: baseURL,
+      url: "/objects",
       failOnStatusCode: false,
     }).then(({ status, body }) => {
       expect(status).to.equal(400);

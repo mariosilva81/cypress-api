@@ -2,7 +2,6 @@
 
 import {
   findMock,
-  baseURL,
   objectId,
   nonExistentObjectId,
   findErrorMessage,
@@ -12,7 +11,7 @@ describe("Find objects", () => {
   it("Find object by ID", () => {
     cy.request({
       method: "GET",
-      url: `${baseURL}/${objectId}`,
+      url: `/objects/${objectId}`,
     }).then(({ status, body }) => {
       expect(status).to.equal(200);
       expect(body).to.deep.equal(findMock);
@@ -22,7 +21,7 @@ describe("Find objects", () => {
   it("Find all objects", () => {
     cy.request({
       method: "GET",
-      url: baseURL,
+      url: "/objects",
     }).then((response) => {
       expect(response.status).to.equal(200);
       response.body.forEach((object) => {
@@ -36,7 +35,7 @@ describe("Find objects", () => {
   it("Find nonexistent object", () => {
     cy.request({
       method: "GET",
-      url: `${baseURL}/${nonExistentObjectId}`,
+      url: `/objects/${nonExistentObjectId}`,
       failOnStatusCode: false,
     }).then(({ status, body }) => {
       expect(status).to.equal(404);
