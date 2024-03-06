@@ -1,27 +1,21 @@
 /// <reference types="cypress"/>
 
-export const baseURL = "https://api.restful-api.dev/objects";
-
-const OBJECT = {
-  id: "1",
-  name: "Google Pixel 6 Pro",
-  data: {
-    color: "Cloudy White",
-    capacity: "128 GB",
-  },
-};
+import {
+  findMock,
+  baseURL,
+  objectId,
+  nonExistentObjectId,
+  findErrorMessage,
+} from "../fixtures";
 
 describe("Find objects", () => {
-  const objectId = 1;
-  const nonExistentObjectId = "999";
-
   it("Find object by ID", () => {
     cy.request({
       method: "GET",
       url: `${baseURL}/${objectId}`,
     }).then(({ status, body }) => {
       expect(status).to.equal(200);
-      expect(body).to.deep.equal(OBJECT);
+      expect(body).to.deep.equal(findMock);
     });
   });
 
@@ -47,7 +41,7 @@ describe("Find objects", () => {
     }).then(({ status, body }) => {
       expect(status).to.equal(404);
       expect(body).to.deep.equal({
-        error: `Oject with id=${nonExistentObjectId} was not found.`,
+        error: findErrorMessage,
       });
     });
   });
