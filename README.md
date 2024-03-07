@@ -52,4 +52,3 @@ Sinta-se à vontade para contribuir com novos testes, melhorias ou correções d
 ## Recursos Adicionais
 
 Para mais informações sobre o framework Cypress, consulte a [documentação oficial](https://docs.cypress.io/).
-```
