@@ -33,8 +33,12 @@ npm install
 
 Para executar os testes, utilize o seguinte comando:
 
-```
+```bash
+# roda no navegador
 npx cypress open
+
+# roda no terminal
+npx cypress run
 ```
 
 Isso abrirá a interface do Cypress, onde você poderá selecionar os testes que deseja executar.
