@@ -31,7 +31,7 @@ npm install
 
 ## Executando os Testes
 
-Para executar os testes, utilize o seguinte comando:
+Para executar os testes, utilize os seguintes comandos:
 
 ```bash
 # roda no navegador
